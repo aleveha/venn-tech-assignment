@@ -1,0 +1,10 @@
+*.yaml
+*.yml
+
+node_modules
+dist
+
+.vscode
+.cursor
+.idea
+.DS_Store
