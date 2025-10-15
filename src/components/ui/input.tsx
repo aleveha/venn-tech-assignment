@@ -3,7 +3,7 @@ import type { ComponentProps } from "react";
 
 export type InputProps = ComponentProps<"input">;
 
-export const Input = ({ className, type, ...props }: InputProps) => {
+export const Input = ({ className, type = "text", ...props }: InputProps) => {
     return (
         <input
             type={type}
