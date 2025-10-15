@@ -1,32 +1,38 @@
-import * as v from "valibot";
+import {
+    length,
+    maxLength,
+    nonEmpty,
+    object,
+    pipe,
+    regex,
+    string,
+    type InferOutput
+} from "valibot";
 
-export const onboardingUserSchema = v.object({
-    firstName: v.pipe(
-        v.string("First name is required"),
-        v.nonEmpty("First name is required"),
-        v.maxLength(50, "First name must be 50 characters or less")
+export const onboardingUserSchema = object({
+    firstName: pipe(
+        string("First name is required"),
+        nonEmpty("First name is required"),
+        maxLength(50, "First name must be 50 characters or less")
     ),
-
-    lastName: v.pipe(
-        v.string("Last name is required"),
-        v.nonEmpty("Last name is required"),
-        v.maxLength(50, "Last name must be 50 characters or less")
+    lastName: pipe(
+        string("Last name is required"),
+        nonEmpty("Last name is required"),
+        maxLength(50, "Last name must be 50 characters or less")
     ),
-
-    phone: v.pipe(
-        v.string("Phone number is required"),
-        v.nonEmpty("Phone number is required"),
-        v.regex(
+    phone: pipe(
+        string("Phone number is required"),
+        nonEmpty("Phone number is required"),
+        regex(
             /^\+1[0-9]{10}$/,
             "Invalid Canadian phone number (must be +1 followed by 10 digits)"
         )
     ),
-
-    corporationNumber: v.pipe(
-        v.string("Corporation number is required"),
-        v.nonEmpty("Corporation number is required"),
-        v.length(9, "Corporation number must be exactly 9 characters")
+    corporationNumber: pipe(
+        string("Corporation number is required"),
+        nonEmpty("Corporation number is required"),
+        length(9, "Corporation number must be exactly 9 characters")
     )
 });
 
-export type OnboardingUserData = v.InferOutput<typeof onboardingUserSchema>;
+export type OnboardingUserData = InferOutput<typeof onboardingUserSchema>;
