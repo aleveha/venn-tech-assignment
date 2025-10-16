@@ -5,9 +5,11 @@ import {
     onboardingUserSchema,
     type OnboardingUserData
 } from "@/entities/onboarding-user";
+import { submitOnboarding } from "@/features/submit-onboarding";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 export const OnboardingForm = () => {
     const {
@@ -19,9 +21,14 @@ export const OnboardingForm = () => {
         mode: "onBlur"
     });
 
-    const onSubmit = (data: OnboardingUserData) => {
-        // TODO: Implement form submission
-        console.log("Form data:", data);
+    const onSubmit = async (data: OnboardingUserData) => {
+        const result = await submitOnboarding(data);
+
+        if (result.success) {
+            toast.success(result.message);
+        } else {
+            toast.error(result.message);
+        }
     };
 
     return (
