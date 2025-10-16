@@ -1,15 +1,18 @@
+import { validateCorporation } from "@/features/validate-corporation";
 import {
+    checkAsync,
     length,
     maxLength,
     nonEmpty,
-    object,
+    objectAsync,
     pipe,
+    pipeAsync,
     regex,
     string,
     type InferOutput
 } from "valibot";
 
-export const onboardingUserSchema = object({
+export const onboardingUserSchema = objectAsync({
     firstName: pipe(
         string("First name is required"),
         nonEmpty("First name is required"),
@@ -28,10 +31,11 @@ export const onboardingUserSchema = object({
             "Invalid Canadian phone number (must be +1 followed by 10 digits)"
         )
     ),
-    corporationNumber: pipe(
+    corporationNumber: pipeAsync(
         string("Corporation number is required"),
         nonEmpty("Corporation number is required"),
-        length(9, "Corporation number must be exactly 9 characters")
+        length(9, "Corporation number must be exactly 9 characters"),
+        checkAsync(validateCorporation, "Corporation number is invalid")
     )
 });
 

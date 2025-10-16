@@ -39,6 +39,7 @@ export const OnboardingForm = () => {
                             id="firstName"
                             {...register("firstName")}
                             aria-invalid={!!errors.firstName}
+                            placeholder="John"
                         />
                         {errors.firstName ? (
                             <FieldError>{errors.firstName.message}</FieldError>
@@ -51,6 +52,7 @@ export const OnboardingForm = () => {
                             id="lastName"
                             {...register("lastName")}
                             aria-invalid={!!errors.lastName}
+                            placeholder="Doe"
                         />
                         {errors.lastName ? (
                             <FieldError>{errors.lastName.message}</FieldError>
@@ -65,7 +67,8 @@ export const OnboardingForm = () => {
                         type="tel"
                         {...register("phone")}
                         aria-invalid={!!errors.phone}
-                        placeholder="+1 (***) ***-****"
+                        maxLength={12}
+                        placeholder="+1 (234) 567-8900"
                     />
                     {errors.phone ? (
                         <FieldError>{errors.phone.message}</FieldError>
@@ -81,6 +84,7 @@ export const OnboardingForm = () => {
                         {...register("corporationNumber")}
                         aria-invalid={!!errors.corporationNumber}
                         maxLength={9}
+                        placeholder="123456789"
                     />
                     {errors.corporationNumber ? (
                         <FieldError>
