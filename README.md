@@ -2,6 +2,10 @@
 
 A production-ready React TypeScript onboarding form with comprehensive validation, API integration, and test coverage.
 
+## Preview
+
+https://venn-tech-assignment.vercel.app/
+
 ---
 
 ## 🚀 Quick Start
