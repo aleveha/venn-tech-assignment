@@ -1,14 +1,10 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-    plugins: [
-        react(),
-        // @ts-expect-error -- type error expected, tailwindcss works fine
-        tailwindcss()
-    ],
+    plugins: [react(), tailwindcss()],
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "./src")
@@ -28,7 +24,7 @@ export default defineConfig({
                 "src/test/**",
                 "src/main.tsx",
                 "src/**/*.d.ts",
-                "src/components/ui/**"
+                "src/shared/ui/**"
             ]
         }
     }
