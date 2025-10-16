@@ -1,6 +1,6 @@
-import { corporationValidationSchema } from "@/entities/corporation-validation";
 import { API } from "@/shared/api";
 import { safeParseAsync } from "valibot";
+import { corporationValidationSchema } from "../schema";
 
 const cache = new Map<string, boolean>();
 

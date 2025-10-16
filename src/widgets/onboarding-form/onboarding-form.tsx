@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
 import {
     onboardingUserSchema,
     type OnboardingUserData
 } from "@/entities/onboarding-user";
 import { submitOnboarding } from "@/features/submit-onboarding";
+import { Button } from "@/shared/ui/button";
+import { Field, FieldError, FieldLabel } from "@/shared/ui/field";
+import { Input } from "@/shared/ui/input";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";

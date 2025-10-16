@@ -1,4 +1,4 @@
-import { validateCorporation } from "@/features/validate-corporation";
+import { validateCorporation } from "@/entities/corporation-validation";
 import {
     checkAsync,
     length,
