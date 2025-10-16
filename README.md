@@ -37,7 +37,7 @@ pnpm test:coverage
 
 | Technology     | Choice             | Why?                                          | Alternative Considered                         |
 | -------------- | ------------------ | --------------------------------------------- | ---------------------------------------------- |
-| **Validation** | Valibot            | 20x smaller than Zod (~600B vs 14KB)          | Zod (too heavy)                                |
+| **Validation** | Valibot            | Smaller budle size, faster in production      | Zod (too heavy, slower)                        |
 | **Forms**      | React Hook Form    | Minimal re-renders, proven ecosystem          | TanStack Form (less mature)                    |
 | **HTTP**       | Native Fetch       | Zero dependencies, sufficient for 2 endpoints | Axios, TanStack Query (overkill for this task) |
 | **UI**         | ShadCN + Tailwind  | Full ownership, customizable                  | MUI (less flexible) or Headless UI             |
